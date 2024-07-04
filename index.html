@@ -5,45 +5,67 @@
     <meta name="viewport" content="width=device-width" />
     <title>replit</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM5zi14AYH7JvOSn1Hx4gNiMR5SpX3P6JPR10sQ" crossorigin="anonymous">
   </head>
 
   <body>
-
-    <h1 style="text-align: center;">Paint Calculator</h1>
+    <header>
+      <h1>Paint Calculator</h1>
+      <i class="fa-solid fa-fill-drip"></i>
+    </header>
+    <!-- Parent Component !-->
     <section class="container">
+      <!-- Result Component <!-->
       <div id="result-container" class="result-container"">
-        <div class="output"><p>You need 11 gallons of paint</p></div>
+        <div class="output" id="output" style="font-size: 1.3rem;">You need 11 gallons of paint</div>
       </div>
+      <!-- Measure Unit Component !-->
       <div class="inner-container">
         <label>Please Select Room Shape:</label>
-        <select name="measure-unit" id="measure-unit"">
+        <select id="measure-unit">
           <option value="">--Select Room Shape--</option>
           <option value="round">Round</option>
           <option value="l-shape">L-Shape</option>
           <option value="square">Square</option>
         </select>
+        <!-- Inputs Component !-->
         <div id="fields">
           <div class="inputs">
             <div class="input-wrapper">
-              <label>Total Height <span>(ft)</span></label>
+              <label>Total Height <span id="unit-height">(ft)</span></label>
               <input type="text" id="height" placeholder="Enter height" />
             </div>
             <div class="input-wrapper">
-              <label>Total Width <span>(ft)</span></label>
+              <label>Total Width <span id="unit-feet">(ft)</span></label>
               <input type="text" id="length" placeholder="Enter length" />
             </div>
           </div>
 
           
         </div>
+        <!-- Button Component -->
         <div id="buttons" class="button-container">
-          <button class="button-29">Calculate</button>
-        <button class="button-30">Clear</button>
+          <div id="cal-btn">
+            <button class="button-29" id="calutate-btn"">Calculate</button>
+          </div>
+          <div id="clear-btn">
+            <button class="button-30" id="clear-btn">Clear</button>
+          </div>
+          
         </div>
         
       </div>
       
     </section>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+    <!-- <script>
+      const measureUnit = document.getElementById("measure-unit");
+      console.log(measureUnit.value);
+      measureUnit.addEventListener('change', () => {
+        console.log(measureUnit.value)
+      })
+      
+      
+    </script> -->
   </body>
 </html>

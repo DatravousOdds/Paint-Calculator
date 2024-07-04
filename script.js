@@ -1,7 +1,43 @@
+const output =  document.getElementById("output");
+const measureUnit = document.getElementById("measure-unit");
+const unitHeight = document.getElementById("unit-height");
+const unitFeet = document.getElementById("unit-feet");
+const length = document.getElementById("length");
+const height = document.getElementById("height");
+const calculateBtn = document.getElementById("calutate-btn");
+const clearBtn = document.getElementById("clear-btn");
+
+const PI = 3.14159;
+
+
+
+measureUnit.addEventListener('change', () => {
+  console.log(measureUnit.value)
+});
+
+calculateBtn.addEventListener('click', () => {
+  // function that calculates the paint needed
+});
+
+clearBtn.addEventListener("click", () => {
+  // function that clears the inputs
+});
+
+const paintCalculator = (height1, width1, height2, width2) => {
+  // function that calculates the paint needed
+}
+
+const clearInputs = () => {
+  // function that clears the inputs
+}
+
+
+                              
+
 // assume one gallon covers 350 sq ft
 // area of L-Shape room (length1 * width1) + (length2 * width2)
 // area of an circle is pi * r^2
-const PI = 3.14159;
+
 // const roomShape = prompt("What shape is your room? R = round, S = square, L = L-shaped").toLowerCase();
 
 

@@ -16,7 +16,7 @@ $secondaryColor: #0B0719;
 .button-30 {
   align-items: center;
   appearance: none;
-  background-image:  radial-gradient(100% 100% at 100% 0, #e61e1e 0, #f3572c 100%);
+  background-image: radial-gradient(100% 100% at 100% 0, #e61e1e 0, #f3572c 100%);
   border: 0;
   border-radius: 6px;
   box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
@@ -42,9 +42,25 @@ $secondaryColor: #0B0719;
   white-space: nowrap;
   will-change: box-shadow, transform;
   font-size: 18px;
-     
-  
+
+
 }
+
+.button-30:focus {
+  box-shadow: #ee6e12 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #ee6e12 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #ee6e12 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #ee6e12 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
 /* CSS */
 .button-29 {
   align-items: center;
@@ -94,6 +110,12 @@ $secondaryColor: #0B0719;
 body {
   background: $primaryColor;
   color: $white;
+
+ header {
+   text-align: center;
+   padding-top: 0.9rem;
+ }
+
 }
 
 @mixin center {
@@ -116,13 +138,7 @@ body {
 
 }
 
-@mixin button {
-  border-radius: 5px;
-  padding: 10px 10px;
-  border: transparent;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
-}
 
 @mixin column {
   flex-direction: column;
@@ -134,7 +150,6 @@ body {
   padding: 12px;
   height: 600px;
   width: 400px;
-  // border: 2px solid #fff;
   box-shadow: 4px 4px 8px #000;
   border-radius: 15px;
   border: 10px solid #0000006e;
@@ -143,6 +158,17 @@ body {
   .button-container {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    // border: 1px solid red;
+
+    #cal-btn,
+    #clear-btn {
+      display: flex;
+      // border: 2px solid yellow;
+      padding: 1rem;
+      flex: 1;
+    }
   }
 
   .result-container {
@@ -152,15 +178,13 @@ body {
     background-color: $primaryColor;
     border: 4px solid #0000006e;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 10, 0.83);
+
+    .output {
+      font-size: 10rem;
+    }
   }
 
-  h1 {
-    text-align: center;
-    padding: 0.25rem;
-    font-size: 2.3rem;
-    color: white;
 
-  }
 
   .inner-container {
     @include center;
@@ -206,13 +230,7 @@ body {
 
   }
 
-  button {
-    @include button;
-    background-color: blue;
-    font-weight: 600;
-    margin: 1rem 5rem;
-
-  }
+  
 
   #result-container {
     @include center;
