@@ -1,45 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <section class="container">
-    <h1>Paint Calculator</h1>
-    <div class="inner-container">
-      <select>
-        <option></option>
-        <option></option>
-      </select>
-      <div class="fields">
-        <div class="inputs">
-
-          <div>
-            <label>Total Height <span>(ft)</span></label>
-            <input type="text" id="height" placeholder="Enter height">
+  <body>
+    <section class="container">
+      <h1>Paint Calculator</h1>
+      <div class="inner-container">
+        <select>
+          <option></option>
+          <option></option>
+        </select>
+        <div class="fields">
+          <div class="inputs">
+            <div class="input-wrapper">
+              <label>Total Height <span>(ft)</span></label>
+              <input type="text" id="height" placeholder="Enter height" />
+            </div>
+            <div class="input-wrapper">
+              <label>Total Width <span>(ft)</span></label>
+              <input type="text" id="length" placeholder="Enter lengt" />
+            </div>
           </div>
-          <div>
-            <label>Total Width <span>(ft)</span></label>
-            <input type="text" id="length" placeholder="Enter lengt">
-          </div>
 
+          <button>CALCULATE</button>
         </div>
-
-        <button>CALCULATE</button>
       </div>
-    </div>
-    <section id="result-container">
-      <div class="output">
-        display results here!
-      </div>
+      <section id="result-container">
+        <div class="output">display results here!</div>
+      </section>
     </section>
-  </section>
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

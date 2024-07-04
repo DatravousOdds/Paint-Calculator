@@ -1,14 +1,93 @@
-
+$font-family: 'Arial';
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: $font-family;
+  color: white;
+  
+}
+
+body {
+  background: #3424DB;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+@mixin input-box {
+  padding: 4px;
+  width: 110px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid #3424DB;
+  box-shadow: 0px 0px 8px 0xp #fff;
+  background-color: #8F87EB;
+ 
+}
+
+@mixin button {
+  border-radius: 5px;
+  padding: 10px 10px;
+  border: transparent;
+  box-shadow: 0px 0px 4px 0px black;
+  
+}
+
+@mixin column {
+  flex-direction: column;
   
 }
 
 .container {
-  height: 500px;
-  width: 500px;
-  border: 2px solid red;
+  background-color:#5C50E2;
+  height: 400px;
+  width: 300px;
+  border: 2px solid #5C50E2;
+  box-shadow: 0px 0px 5px 0px black;
+  border-radius: 8px;
+  margin: 2rem auto;
   
+  h1 {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+  }
+
+  .inner-container {
+    @include center;
+    @include column;
+
+    input {
+      @include input-box;
+      width: 110px;
+      height: 50px;
+      padding: 1rem;
+    }
+
+    
+
+
+    .inputs {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+  }
+
+  button {
+    @include button;
+    background-color: blue;
+    font-weight: 600;
+    margin: 1rem 5rem;
+    
+  }
+
+  #result-container {
+    @include center;
+  }
 }
