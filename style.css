@@ -3,25 +3,116 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Arial";
-  color: white;
+}
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #e61e1e 0, #f3572c 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+/* CSS */
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 body {
-  background: #3424DB;
+  background: #3B3934;
+  color: #fff;
 }
 
 .container {
-  background-color: #5C50E2;
-  height: 400px;
-  width: 300px;
-  border: 2px solid #5C50E2;
-  box-shadow: 0px 0px 5px 0px black;
-  border-radius: 8px;
+  background-color: #435670;
+  padding: 12px;
+  height: 600px;
+  width: 400px;
+  box-shadow: 4px 4px 8px #000;
+  border-radius: 15px;
+  border: 10px solid rgba(0, 0, 0, 0.431372549);
   margin: 2rem auto;
+}
+.container .button-container {
+  display: flex;
+  align-items: center;
+}
+.container .result-container {
+  width: 100%;
+  height: 100px;
+  border-radius: 8px;
+  background-color: #3B3934;
+  border: 4px solid rgba(0, 0, 0, 0.431372549);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 10, 0.83);
 }
 .container h1 {
   text-align: center;
-  padding: 1rem;
+  padding: 0.25rem;
+  font-size: 2.3rem;
   color: white;
 }
 .container .inner-container {
@@ -30,21 +121,40 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.container .inner-container input {
-  padding: 5px;
-  border-radius: 5px;
-  border: 2px solid #3424DB;
-  box-shadow: 0px 0px 8px 0xp #fff;
-  background-color: #8F87EB;
+.container .inner-container label {
+  padding: 12px 0px;
+  font-size: 1.1rem;
 }
-.container .inner-container .input-wrapper {
+.container .inner-container #measure-unit {
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, 0.431372549);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  font-size: 0.9rem;
+}
+.container .inner-container #fields .inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .inner-container #fields .inputs .input-wrapper {
+  padding: 1.5rem;
+}
+.container .inner-container input {
   padding: 1rem;
+  width: 110px;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 .container button {
   border-radius: 5px;
   padding: 10px 10px;
   border: transparent;
-  box-shadow: 0px 0px 4px 0px black;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   background-color: blue;
   font-weight: 600;
   margin: 1rem 5rem;

@@ -1,82 +1,209 @@
 $font-family: 'Arial';
+$white: #fff;
+$primaryColor: #3B3934;
+$secondaryColor: #0B0719;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: $font-family;
-  color: white;
+  // color: $white;
+
+}
+
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-image:  radial-gradient(100% 100% at 100% 0, #e61e1e 0, #f3572c 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+     
   
+}
+/* CSS */
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 body {
-  background: #3424DB;
+  background: $primaryColor;
+  color: $white;
 }
 
 @mixin center {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 @mixin input-box {
-  padding: 4px;
+  padding: 1rem;
+
   width: 110px;
   height: 50px;
-  border-radius: 5px;
-  border: 2px solid #3424DB;
-  box-shadow: 0px 0px 8px 0xp #fff;
-  background-color: #8F87EB;
- 
+  border-radius: 4px;
+  border: none;
+  // border: 2px solid $primaryColor;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  // background-color: white;
+
 }
 
 @mixin button {
   border-radius: 5px;
   padding: 10px 10px;
   border: transparent;
-  box-shadow: 0px 0px 4px 0px black;
-  
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
 }
 
 @mixin column {
   flex-direction: column;
-  
+
 }
 
 .container {
-  background-color:#5C50E2;
-  height: 400px;
-  width: 300px;
-  border: 2px solid #5C50E2;
-  box-shadow: 0px 0px 5px 0px black;
-  border-radius: 8px;
+  background-color: #435670;
+  padding: 12px;
+  height: 600px;
+  width: 400px;
+  // border: 2px solid #fff;
+  box-shadow: 4px 4px 8px #000;
+  border-radius: 15px;
+  border: 10px solid #0000006e;
   margin: 2rem auto;
-  
+
+  .button-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .result-container {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    background-color: $primaryColor;
+    border: 4px solid #0000006e;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 10, 0.83);
+  }
+
   h1 {
     text-align: center;
-    padding: 1rem;
+    padding: 0.25rem;
+    font-size: 2.3rem;
     color: white;
+
   }
 
   .inner-container {
     @include center;
     @include column;
 
+    label {
+      padding: 12px 0px;
+      font-size: 1.1rem;
+    }
+
+    #measure-unit {
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+      border: 2px solid #0000006e;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    #fields {
+      .inputs {
+
+        @include center;
+
+
+        .input-wrapper {
+          padding: 1.5rem;
+        }
+
+      }
+    }
+
     input {
       @include input-box;
-      width: 110px;
-      height: 50px;
-      padding: 1rem;
+
     }
 
-    
 
 
-    .inputs {
-      display: flex;
-      justify-content: space-between;
-    }
-    
+
+
+
   }
 
   button {
@@ -84,7 +211,7 @@ body {
     background-color: blue;
     font-weight: 600;
     margin: 1rem 5rem;
-    
+
   }
 
   #result-container {

@@ -8,14 +8,21 @@
   </head>
 
   <body>
+
+    <h1 style="text-align: center;">Paint Calculator</h1>
     <section class="container">
-      <h1>Paint Calculator</h1>
+      <div id="result-container" class="result-container"">
+        <div class="output"><p>You need 11 gallons of paint</p></div>
+      </div>
       <div class="inner-container">
-        <select>
-          <option></option>
-          <option></option>
+        <label>Please Select Room Shape:</label>
+        <select name="measure-unit" id="measure-unit"">
+          <option value="">--Select Room Shape--</option>
+          <option value="round">Round</option>
+          <option value="l-shape">L-Shape</option>
+          <option value="square">Square</option>
         </select>
-        <div class="fields">
+        <div id="fields">
           <div class="inputs">
             <div class="input-wrapper">
               <label>Total Height <span>(ft)</span></label>
@@ -23,16 +30,19 @@
             </div>
             <div class="input-wrapper">
               <label>Total Width <span>(ft)</span></label>
-              <input type="text" id="length" placeholder="Enter lengt" />
+              <input type="text" id="length" placeholder="Enter length" />
             </div>
           </div>
 
-          <button>CALCULATE</button>
+          
         </div>
+        <div id="buttons" class="button-container">
+          <button class="button-29">Calculate</button>
+        <button class="button-30">Clear</button>
+        </div>
+        
       </div>
-      <section id="result-container">
-        <div class="output">display results here!</div>
-      </section>
+      
     </section>
     <script src="script.js"></script>
   </body>
