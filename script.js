@@ -13,22 +13,43 @@ const PI = 3.14159;
 
 measureUnit.addEventListener('change', () => {
   console.log(measureUnit.value)
+  if (measureUnit.value === "round") {
+    unitHeight.style.display = "none";
+    unitFeet.style.display = "none";
+    const div = createElement
+    
+  }
 });
 
 calculateBtn.addEventListener('click', () => {
-  // function that calculates the paint needed
+  // function that calculates the paint 
+  const measureValue = measureUnit.value;
+  if (measureValue == "round") {
+    if(roomRadius > 0 && isNaN(roomRadius)) {
+      const area = PI * Math.pow(roomRadius, 2);
+      const gallons = area / 350;
+      output.innerHTML = `You need ${gallons} gallons of paint`;
+    } 
+    // TODO: implement error handler for invalid input
+  } 
+    
+  
+    
+  
 });
 
 clearBtn.addEventListener("click", () => {
   // function that clears the inputs
 });
 
-const paintCalculator = (height1, width1, height2, width2) => {
+const paintCalculator = (height1, width1, height2=0, width2=0) => {
   // function that calculates the paint needed
+  
 }
 
 const clearInputs = () => {
   // function that clears the inputs
+  
 }
 
 
