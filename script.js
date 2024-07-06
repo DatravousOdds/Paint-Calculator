@@ -16,7 +16,15 @@ measureUnit.addEventListener('change', () => {
   if (measureUnit.value === "round") {
     unitHeight.style.display = "none";
     unitFeet.style.display = "none";
-    const div = createElement
+    const div = document.createElement("div");
+    div.classList.add("inputs");
+    const innerDiv = document.createElement("div");
+    innerDiv.classList.add("input-wrapper");
+    const label = document.createElement("label");
+    const newContent = document.createTextNode("Radius");
+    label.append(newContent);
+    const inputField = document.createElement("input");
+    inputField.attributes()
     
   }
 });
