@@ -145,7 +145,7 @@ body header {
   flex-direction: column;
 }
 .container .inner-container label {
-  padding: 12px 0px;
+  padding: 12px 11px;
   font-size: 1.1rem;
 }
 .container .inner-container #measure-unit {
