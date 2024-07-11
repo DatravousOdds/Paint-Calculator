@@ -142,6 +142,7 @@ body header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   flex-direction: column;
 }
 .container .inner-container label {
@@ -158,12 +159,12 @@ body header {
   font-size: 0.9rem;
 }
 .container .inner-container #fields .inputs {
+  flex-wrap: wrap;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .container .inner-container #fields .inputs .input-wrapper {
   padding: 1.5rem;
+  flex: 1;
 }
 .container .inner-container input {
   padding: 1rem;
@@ -177,6 +178,7 @@ body header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=style.css.map */

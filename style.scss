@@ -111,10 +111,10 @@ body {
   background: $primaryColor;
   color: $white;
 
- header {
-   text-align: center;
-   padding-top: 0.9rem;
- }
+  header {
+    text-align: center;
+    padding-top: 0.9rem;
+  }
 
 }
 
@@ -122,6 +122,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
 }
 
@@ -207,12 +208,14 @@ body {
 
     #fields {
       .inputs {
-
-        @include center;
+        // @include center
+        flex-wrap: wrap;
+        display: flex;
 
 
         .input-wrapper {
           padding: 1.5rem;
+          flex: 1;
         }
 
       }
@@ -230,7 +233,7 @@ body {
 
   }
 
-  
+
 
   #result-container {
     @include center;
