@@ -40,33 +40,43 @@ measureUnit.addEventListener("change", () => {
     if (radiusDiv) {
       radiusDiv.remove();
     }
-    const width2 = document.createElement("div");
-    width2.classList.add("input-wrapper");
-    width2.setAttribute("id", "unit-width2");
-    const labelwidth2 = document.createElement("label");
-    const labelForWidth2 = document.createTextNode("Width 2");
-    labelwidth2.append(labelForWidth2);
-    const inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    inputElement.setAttribute("placeholder", "Enter width 2");
-    width2.append(labelwidth2);
-    width2.append(inputElement);
-    inputFields.append(width2);
-    // creates width 2 input
 
     // creates height 2 input
     const height2 = document.createElement("div");
     height2.classList.add("input-wrapper");
     height2.setAttribute("id", "unit-height2");
     const labelheight2 = document.createElement("label");
-    const labelForheight2 = document.createTextNode("height 2");
+    const labelForheight2 = document.createTextNode("Height 2");
     labelheight2.append(labelForheight2);
+    const inputElement = document.createElement("input");
+    inputElement.setAttribute("type", "text");
+    inputElement.setAttribute("placeholder", "Enter height 2");
+    height2.append(labelheight2);
+    height2.append(inputElement);
+    inputFields.append(height2);
+
+    // creates width 2 input
+    const width2 = document.createElement("div");
+    width2.classList.add("input-wrapper");
+    width2.setAttribute("id", "unit-width2");
+    const labelwidth2 = document.createElement("label");
+    const labelForwidth2 = document.createTextNode("Width 2");
+    labelwidth2.append(labelForwidth2);
     const inputElement2 = document.createElement("input");
     inputElement2.setAttribute("type", "text");
     inputElement2.setAttribute("placeholder", "Enter height 2");
-    height2.append(labelheight2);
-    height2.append(inputElement2);
-    inputFields.append(height2);
+    width2.append(labelwidth2);
+    width2.append(inputElement2);
+    inputFields.append(width2);
+  } else if (measureUnit.value === "square") {
+    const width_2 = document.getElementById("unit-width2");
+    const height_2 = document.getElementById("unit-height2");
+    // checks if the there is an width2, height2, and radius element
+    if (radiusDiv || width_2 || height_2) {
+      radiusDiv.remove();
+      width_2.remove();
+      height.remove();
+    }
   }
 });
 
