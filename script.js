@@ -107,9 +107,10 @@ measureUnit.addEventListener("change", () => {
     inputFields.append(height);
 
     // creates width 2 input
-    const width = document.createElement("div");
-    width.classList.add("input-wrapper");
-    width.setAttribute("id", "unit-width");
+    elementCreator("div", "input-wrapper", "id", "unit-width");
+    // const width = document.createElement("div");
+    // width.classList.add("input-wrapper");
+    // width.setAttribute("id", "unit-width");
     const labelwidth = document.createElement("label");
     const labelForwidth = document.createTextNode("Width");
     labelwidth.append(labelForwidth);
@@ -153,10 +154,17 @@ const elementCreator = (
   // TODO: implement
   return () => {
     const variableName = document.createElement(ele);
-    variableName.classList.add(className);
-    variableName.setAttribute(attributeName, value);
-    const elementText = document.createTextNode(optionalText);
-    variableName.append(elementText);
+    if (className) {
+      variableName.classList.add(className);
+    }
+    if (attributeName && value) {
+      variableName.setAttribute(attributeName, value);
+    }
+    if (optionalText) {
+      const text = document.createTextNode(optionalText);
+      variableName.append(text);
+    }
+    return variableName;
   };
 };
 
