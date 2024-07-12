@@ -14,8 +14,7 @@ const PI = 3.14159;
 measureUnit.addEventListener("change", () => {
   console.log(measureUnit.value);
   if (measureUnit.value === "round") {
-    unitHeight.style.display = "none";
-    unitFeet.style.display = "none";
+    inputFields.innerHTML = "";
 
     // create an new element for radius input
     const div = document.createElement("div");
@@ -32,27 +31,50 @@ measureUnit.addEventListener("change", () => {
     innerDiv.append(label);
     innerDiv.append(inputField);
     div.append(innerDiv);
-    fields.append(div);
+    inputFields.append(div);
   } else if (measureUnit.value === "l-shape") {
-    unitHeight.style.display = "block";
-    unitFeet.style.display = "block";
-    const radiusDiv = document.getElementById("unit-radius");
-    if (radiusDiv) {
-      radiusDiv.remove();
-    }
+    inputFields.innerHTML = "";
+
+    // creates height 2 input
+    const height = document.createElement("div");
+    height.classList.add("input-wrapper");
+    height.setAttribute("id", "unit-height");
+    const labelheight = document.createElement("label");
+    const labelForheight = document.createTextNode("Height (ft):");
+    labelheight.append(labelForheight);
+    const inputElement = document.createElement("input");
+    inputElement.setAttribute("type", "text");
+    inputElement.setAttribute("placeholder", "Enter height");
+    height.append(labelheight);
+    height.append(inputElement);
+    inputFields.append(height);
+
+    // creates width 2 input
+    const width = document.createElement("div");
+    width.classList.add("input-wrapper");
+    width.setAttribute("id", "unit-width");
+    const labelwidth = document.createElement("label");
+    const labelForwidth = document.createTextNode("Width (ft):");
+    labelwidth.append(labelForwidth);
+    const inputElement_2 = document.createElement("input");
+    inputElement_2.setAttribute("type", "text");
+    inputElement_2.setAttribute("placeholder", "Enter width");
+    width.append(labelwidth);
+    width.append(inputElement_2);
+    inputFields.append(width);
 
     // creates height 2 input
     const height2 = document.createElement("div");
     height2.classList.add("input-wrapper");
     height2.setAttribute("id", "unit-height2");
     const labelheight2 = document.createElement("label");
-    const labelForheight2 = document.createTextNode("Height 2");
+    const labelForheight2 = document.createTextNode("Height (ft):");
     labelheight2.append(labelForheight2);
-    const inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    inputElement.setAttribute("placeholder", "Enter height 2");
+    const inputElement_3 = document.createElement("input");
+    inputElement_3.setAttribute("type", "text");
+    inputElement_3.setAttribute("placeholder", "Enter height 2");
     height2.append(labelheight2);
-    height2.append(inputElement);
+    height2.append(inputElement_3);
     inputFields.append(height2);
 
     // creates width 2 input
@@ -60,23 +82,43 @@ measureUnit.addEventListener("change", () => {
     width2.classList.add("input-wrapper");
     width2.setAttribute("id", "unit-width2");
     const labelwidth2 = document.createElement("label");
-    const labelForwidth2 = document.createTextNode("Width 2");
+    const labelForwidth2 = document.createTextNode("Width (ft):");
     labelwidth2.append(labelForwidth2);
     const inputElement2 = document.createElement("input");
     inputElement2.setAttribute("type", "text");
-    inputElement2.setAttribute("placeholder", "Enter height 2");
+    inputElement2.setAttribute("placeholder", "Enter width 2");
     width2.append(labelwidth2);
     width2.append(inputElement2);
     inputFields.append(width2);
   } else if (measureUnit.value === "square") {
-    const width_2 = document.getElementById("unit-width2");
-    const height_2 = document.getElementById("unit-height2");
-    // checks if the there is an width2, height2, and radius element
-    if (radiusDiv || width_2 || height_2) {
-      radiusDiv.remove();
-      width_2.remove();
-      height.remove();
-    }
+    inputFields.innerHTML = "";
+
+    const height = document.createElement("div");
+    height.classList.add("input-wrapper");
+    height.setAttribute("id", "unit-height");
+    const labelheight = document.createElement("label");
+    const labelForheight = document.createTextNode("Height");
+    labelheight.append(labelForheight);
+    const inputElement = document.createElement("input");
+    inputElement.setAttribute("type", "text");
+    inputElement.setAttribute("placeholder", "Enter height");
+    height.append(labelheight);
+    height.append(inputElement);
+    inputFields.append(height);
+
+    // creates width 2 input
+    const width = document.createElement("div");
+    width.classList.add("input-wrapper");
+    width.setAttribute("id", "unit-width");
+    const labelwidth = document.createElement("label");
+    const labelForwidth = document.createTextNode("Width");
+    labelwidth.append(labelForwidth);
+    const inputElement2 = document.createElement("input");
+    inputElement2.setAttribute("type", "text");
+    inputElement2.setAttribute("placeholder", "Enter height");
+    width.append(labelwidth);
+    width.append(inputElement2);
+    inputFields.append(width);
   }
 });
 
@@ -99,6 +141,23 @@ clearBtn.addEventListener("click", () => {
 
 const clearInputs = () => {
   // function that clears the inputs
+};
+
+const elementCreator = (
+  ele,
+  className = null,
+  attributeName = null,
+  value = null,
+  optionalText = null,
+) => {
+  // TODO: implement
+  return () => {
+    const variableName = document.createElement(ele);
+    variableName.classList.add(className);
+    variableName.setAttribute(attributeName, value);
+    const elementText = document.createTextNode(optionalText);
+    variableName.append(elementText);
+  };
 };
 
 // assume one gallon covers 350 sq ft
