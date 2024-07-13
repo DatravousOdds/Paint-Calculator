@@ -135,11 +135,7 @@ measureUnit.addEventListener("change", () => {
     const widthDiv = elementCreator("div", "input-wrapper", {
       id: "unit-width",
     });
-    const myLabel = elementCreator("label", null, {}, "Width (ft):");
-    const settingAttributes = {
-      type: "text",
-      placeholder: "Enter width",
-    };
+    const myLabel = elementCreator("label", null, {"type": "text","placeholder":"Enter width"}, "Width (ft):");
     const inputElement_2 = elementCreator("input", null, settingAttributes);
     widthDiv.append(myLabel);
     widthDiv.append(inputElement_2);
