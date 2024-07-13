@@ -40,20 +40,23 @@ measureUnit.addEventListener("change", () => {
     inputFields.innerHTML = "";
 
     // create an new element for radius input
-    const div = document.createElement("div");
-    div.classList.add("inputs");
-    div.setAttribute("id", "unit-radius");
-    const innerDiv = document.createElement("div");
-    innerDiv.classList.add("input-wrapper");
-    const label = document.createElement("label");
-    const newContent = document.createTextNode("Radius");
-    label.append(newContent);
-    const inputField = document.createElement("input");
-    inputField.setAttribute("type", "text");
-    inputField.setAttribute("placeholder", "Enter radius");
+    const radiusDiv = elementCreator("div","inputs", {"id": "unit-radius"})
+    // const div = document.createElement("div");
+    // div.classList.add("inputs");
+    // div.setAttribute("id", "unit-radius");
+    const innerRadiusDiv = elementCreator("div","input-wrapper", {})
+    // const innerDiv = document.createElement("div");
+    // innerDiv.classList.add("input-wrapper");
+    const label = elementCreator("label",null,{},"Radius")
+    // const label = document.createElement("label");
+    // const newContent = document.createTextNode("Radius");
+    const input = elementCreator("input", {"type": "text", "placeholder":"Enter radius"})
+    // const inputField = document.createElement("input");
+    // inputField.setAttribute("type", "text");
+    // inputField.setAttribute("placeholder", "Enter radius");
     innerDiv.append(label);
     innerDiv.append(inputField);
-    div.append(innerDiv);
+    radiusDiv.append(innerDiv);
     inputFields.append(div);
   } else if (measureUnit.value === "l-shape") {
     inputFields.innerHTML = "";
@@ -115,29 +118,20 @@ measureUnit.addEventListener("change", () => {
     inputFields.append(width2);
   } else if (measureUnit.value === "square") {
     inputFields.innerHTML = "";
+
+    // creates height element
     const heightDiv = elementCreator("div", "input-wrapper", {
       id: "unit-height",
     });
-    // const height = document.createElement("div");
-    // height.classList.add("input-wrapper");
-    // height.setAttribute("id", "unit-height");
     const heightLabel = elementCreator("label", null, {}, "Height (ft):");
-    // const labelheight = document.createElement("label");
-    // const labelForheight = document.createTextNode("Height");
-    // labelheight.append(labelForheight);
     heightDiv.append(heightLabel);
-    // const inputElement = document.createElement("input");
-    // inputElement.setAttribute("type", "text");
-    // inputElement.setAttribute("placeholder", "Enter height");
     const heightInput = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter height",
     });
-    // heightDiv.append(labelheight);
     heightDiv.append(heightInput);
     inputFields.append(heightDiv);
-
-    // creates width 2 input
+    // creates width element
     const widthDiv = elementCreator("div", "input-wrapper", {
       id: "unit-width",
     });
@@ -157,17 +151,23 @@ calculateBtn.addEventListener("click", () => {
   // function that calculates the paint
   const measureValue = measureUnit.value;
   if (measureValue == "round") {
-    if (roomRadius > 0 && isNaN(roomRadius)) {
-      const area = PI * Math.pow(roomRadius, 2);
+    const radius = document.getElementByID("unit-radius").value;
+    if (radius > 0 && isNaN(radius))
+      const area = PI * Math.pow(radius, 2);
       const gallons = area / 350;
       output.innerHTML = `You need ${gallons} gallons of paint`;
     }
     // TODO: implement error handler for invalid input
+  } else if (measureValue == "l-shape") {
+    
+  } else if (measureValue == "square") {
+    
   }
 });
 
 clearBtn.addEventListener("click", () => {
   // function that clears the inputs
+  
 });
 
 const clearInputs = () => {
