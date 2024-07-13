@@ -11,6 +11,29 @@ const inputFields = document.getElementById("inputs_fields");
 
 const PI = 3.14159;
 
+// function that creates DOM elements
+const elementCreator = (
+  ele,
+  className = null,
+  attributes = {},
+  optionalText = null,
+) => {
+  // TODO: implement
+
+  const variableName = document.createElement(ele);
+  if (className) {
+    variableName.classList.add(className);
+  }
+  for (const [attr, value] of Object.entries(attributes)) {
+    variableName.setAttribute(attr, value);
+  }
+  if (optionalText) {
+    const text = document.createTextNode(optionalText);
+    variableName.append(text);
+  }
+  return variableName;
+};
+
 measureUnit.addEventListener("change", () => {
   console.log(measureUnit.value);
   if (measureUnit.value === "round") {
@@ -92,34 +115,41 @@ measureUnit.addEventListener("change", () => {
     inputFields.append(width2);
   } else if (measureUnit.value === "square") {
     inputFields.innerHTML = "";
-
-    const height = document.createElement("div");
-    height.classList.add("input-wrapper");
-    height.setAttribute("id", "unit-height");
-    const labelheight = document.createElement("label");
-    const labelForheight = document.createTextNode("Height");
-    labelheight.append(labelForheight);
-    const inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    inputElement.setAttribute("placeholder", "Enter height");
-    height.append(labelheight);
-    height.append(inputElement);
-    inputFields.append(height);
+    const heightDiv = elementCreator("div", "input-wrapper", {
+      id: "unit-height",
+    });
+    // const height = document.createElement("div");
+    // height.classList.add("input-wrapper");
+    // height.setAttribute("id", "unit-height");
+    const heightLabel = elementCreator("label", null, {}, "Height (ft):");
+    // const labelheight = document.createElement("label");
+    // const labelForheight = document.createTextNode("Height");
+    // labelheight.append(labelForheight);
+    heightDiv.append(heightLabel);
+    // const inputElement = document.createElement("input");
+    // inputElement.setAttribute("type", "text");
+    // inputElement.setAttribute("placeholder", "Enter height");
+    const heightInput = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter height",
+    });
+    // heightDiv.append(labelheight);
+    heightDiv.append(heightInput);
+    inputFields.append(heightDiv);
 
     // creates width 2 input
-    elementCreator("div", "input-wrapper", "id", "unit-width");
-    // const width = document.createElement("div");
-    // width.classList.add("input-wrapper");
-    // width.setAttribute("id", "unit-width");
-    const labelwidth = document.createElement("label");
-    const labelForwidth = document.createTextNode("Width");
-    labelwidth.append(labelForwidth);
-    const inputElement2 = document.createElement("input");
-    inputElement2.setAttribute("type", "text");
-    inputElement2.setAttribute("placeholder", "Enter height");
-    width.append(labelwidth);
-    width.append(inputElement2);
-    inputFields.append(width);
+    const widthDiv = elementCreator("div", "input-wrapper", {
+      id: "unit-width",
+    });
+    const myLabel = elementCreator("label", null, {}, "Width (ft):");
+    const settingAttributes = {
+      type: "text",
+      placeholder: "Enter width",
+    };
+    const inputElement_2 = elementCreator("input", null, settingAttributes);
+    widthDiv.append(myLabel);
+    widthDiv.append(inputElement_2);
+    inputFields.append(widthDiv);
   }
 });
 
@@ -142,30 +172,6 @@ clearBtn.addEventListener("click", () => {
 
 const clearInputs = () => {
   // function that clears the inputs
-};
-
-const elementCreator = (
-  ele,
-  className = null,
-  attributeName = null,
-  value = null,
-  optionalText = null,
-) => {
-  // TODO: implement
-  return () => {
-    const variableName = document.createElement(ele);
-    if (className) {
-      variableName.classList.add(className);
-    }
-    if (attributeName && value) {
-      variableName.setAttribute(attributeName, value);
-    }
-    if (optionalText) {
-      const text = document.createTextNode(optionalText);
-      variableName.append(text);
-    }
-    return variableName;
-  };
 };
 
 // assume one gallon covers 350 sq ft
