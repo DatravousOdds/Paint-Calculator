@@ -46,6 +46,7 @@ measureUnit.addEventListener("change", () => {
     const input = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter radius",
+      id: "radius",
     });
 
     innerRadiusDiv.append(label);
@@ -63,6 +64,7 @@ measureUnit.addEventListener("change", () => {
     const inputHeight = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter height",
+      id: "height",
     });
 
     height.append(labelHeight);
@@ -75,6 +77,7 @@ measureUnit.addEventListener("change", () => {
     const inputWidth = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter width",
+      id: "width",
     });
 
     width.append(labelWidth);
@@ -91,6 +94,7 @@ measureUnit.addEventListener("change", () => {
     const inputHeight2 = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter height 2",
+      id: "height2",
     });
 
     height2.append(labelHeight2);
@@ -105,6 +109,7 @@ measureUnit.addEventListener("change", () => {
     const inputWidth2 = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter width 2",
+      id: "width2",
     });
 
     width2.append(labelwidth2);
@@ -122,9 +127,11 @@ measureUnit.addEventListener("change", () => {
     const heightInput = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter height",
+      id: "height",
     });
     heightDiv.append(heightInput);
     inputFields.append(heightDiv);
+
     // creates width element
     const widthDiv = elementCreator("div", "input-wrapper", {
       id: "unit-width",
@@ -138,6 +145,7 @@ measureUnit.addEventListener("change", () => {
     const widthInput = elementCreator("input", null, {
       type: "text",
       placeholder: "Enter width",
+      id: "width",
     });
     widthDiv.append(myLabel);
     widthDiv.append(widthInput);
@@ -147,16 +155,36 @@ measureUnit.addEventListener("change", () => {
 
 calculateBtn.addEventListener("click", () => {
   // function that calculates the paint
-  const measureValue = measureUnit.value;
-  if (measureValue == "round") {
-    const radius = document.getElementByID("unit-radius").value;
-    if (radius > 0 && isNaN(radius)) {
-      const area = PI * Math.pow(radius, 2);
+  if (measureUnit.value === "round") {
+    console.log(output.textContent);
+    const radius = document.getElementById("radius").value;
+    if (parseInt(radius) > 0 && !isNaN(radius)) {
+      const area = Math.pow(radius, 2);
       const gallons = area / 350;
-      output.innerHTML = `You need ${gallons} gallons of paint`;
+      console.log(gallons);
+      if (gallons > 0) {
+        output.innerHTML = `You need ${Math.ceil(gallons)} gallons of paint`;
+      } else {
+        output.innerHTML = `You need ${Math.ceil(gallons)} gallon of paint`;
+      }
     }
-    // TODO: implement error handler for invalid input
+  } else if (measureUnit.value === "l-shape") {
+    console.log(output.textContent);
+    const height = document.getElementById("height").value;
+    const width = document.getElementById("width").value;
+    const height2 = document.getElementById("height2").value;
+    const width2 = document.getElementById("width2").value;
   }
+  // const measureValue = measureUnit.value;
+  // if (measureValue == "round") {
+  //   const radius = document.getElementByID("unit-radius").value;
+  //   if (radius > 0 && isNaN(radius)) {
+  //     const area = PI * Math.pow(radius, 2);
+  //     const gallons = area / 350;
+  //     output.innerHTML = `You need ${gallons} gallons of paint`;
+  //   }
+  //   // TODO: implement error handler for invalid input
+  // }
 });
 
 clearBtn.addEventListener("click", () => {
