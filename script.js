@@ -163,9 +163,9 @@ calculateBtn.addEventListener("click", () => {
       const gallons = area / 350;
       console.log(gallons);
       if (gallons > 0) {
-        output.innerHTML = `You need ${Math.ceil(gallons)} gallons of paint`;
+        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
       } else {
-        output.innerHTML = `You need ${Math.ceil(gallons)} gallon of paint`;
+        output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
       }
     }
   } else if (measureUnit.value === "l-shape") {
@@ -174,17 +174,15 @@ calculateBtn.addEventListener("click", () => {
     const width = document.getElementById("width").value;
     const height2 = document.getElementById("height2").value;
     const width2 = document.getElementById("width2").value;
+    const area = height * width + height2 * width2;
+    const gallons = area / 350;
+    console.log(gallons);
+    if (gallons > 0) {
+      output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+    } else {
+      output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
+    }
   }
-  // const measureValue = measureUnit.value;
-  // if (measureValue == "round") {
-  //   const radius = document.getElementByID("unit-radius").value;
-  //   if (radius > 0 && isNaN(radius)) {
-  //     const area = PI * Math.pow(radius, 2);
-  //     const gallons = area / 350;
-  //     output.innerHTML = `You need ${gallons} gallons of paint`;
-  //   }
-  //   // TODO: implement error handler for invalid input
-  // }
 });
 
 clearBtn.addEventListener("click", () => {
