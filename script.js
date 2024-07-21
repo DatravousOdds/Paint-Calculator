@@ -40,81 +40,75 @@ measureUnit.addEventListener("change", () => {
     inputFields.innerHTML = "";
 
     // create an new element for radius input
-    const radiusDiv = elementCreator("div","inputs", {"id": "unit-radius"})
-    // const div = document.createElement("div");
-    // div.classList.add("inputs");
-    // div.setAttribute("id", "unit-radius");
-    const innerRadiusDiv = elementCreator("div","input-wrapper", {})
-    // const innerDiv = document.createElement("div");
-    // innerDiv.classList.add("input-wrapper");
-    const label = elementCreator("label",null,{},"Radius")
-    // const label = document.createElement("label");
-    // const newContent = document.createTextNode("Radius");
-    const input = elementCreator("input", {"type": "text", "placeholder":"Enter radius"})
-    // const inputField = document.createElement("input");
-    // inputField.setAttribute("type", "text");
-    // inputField.setAttribute("placeholder", "Enter radius");
-    innerDiv.append(label);
-    innerDiv.append(inputField);
-    radiusDiv.append(innerDiv);
-    inputFields.append(div);
+    const radiusDiv = elementCreator("div", "inputs", { id: "unit-radius" });
+    const innerRadiusDiv = elementCreator("div", "input-wrapper", {});
+    const label = elementCreator("label", null, {}, "Radius");
+    const input = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter radius",
+    });
+
+    innerRadiusDiv.append(label);
+    innerRadiusDiv.append(input);
+    radiusDiv.append(innerRadiusDiv);
+    inputFields.append(radiusDiv);
   } else if (measureUnit.value === "l-shape") {
     inputFields.innerHTML = "";
 
-    // creates height 2 input
-    const height = document.createElement("div");
-    height.classList.add("input-wrapper");
-    height.setAttribute("id", "unit-height");
-    const labelheight = document.createElement("label");
-    const labelForheight = document.createTextNode("Height (ft):");
-    labelheight.append(labelForheight);
-    const inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    inputElement.setAttribute("placeholder", "Enter height");
-    height.append(labelheight);
-    height.append(inputElement);
+    // creates the first height input
+    const height = elementCreator("div", "input-wrapper", {
+      id: "unit-height",
+    });
+    const labelHeight = elementCreator("label", null, {}, "Height (ft):");
+    const inputHeight = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter height",
+    });
+
+    height.append(labelHeight);
+    height.append(inputHeight);
     inputFields.append(height);
 
-    // creates width 2 input
-    const width = document.createElement("div");
-    width.classList.add("input-wrapper");
-    width.setAttribute("id", "unit-width");
-    const labelwidth = document.createElement("label");
-    const labelForwidth = document.createTextNode("Width (ft):");
-    labelwidth.append(labelForwidth);
-    const inputElement_2 = document.createElement("input");
-    inputElement_2.setAttribute("type", "text");
-    inputElement_2.setAttribute("placeholder", "Enter width");
-    width.append(labelwidth);
-    width.append(inputElement_2);
+    // creates the first width input
+    const width = elementCreator("div", "input-wrapper", { id: "unit-width" });
+    const labelWidth = elementCreator("label", null, {}, "Width (ft):");
+    const inputWidth = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter width",
+    });
+
+    width.append(labelWidth);
+    width.append(inputWidth);
     inputFields.append(width);
 
-    // creates height 2 input
-    const height2 = document.createElement("div");
-    height2.classList.add("input-wrapper");
-    height2.setAttribute("id", "unit-height2");
-    const labelheight2 = document.createElement("label");
-    const labelForheight2 = document.createTextNode("Height (ft):");
-    labelheight2.append(labelForheight2);
-    const inputElement_3 = document.createElement("input");
-    inputElement_3.setAttribute("type", "text");
-    inputElement_3.setAttribute("placeholder", "Enter height 2");
-    height2.append(labelheight2);
-    height2.append(inputElement_3);
+    // creates second height input
+    const height2 = elementCreator("div", "input-wrapper", {
+      id: "unit-height2",
+    });
+
+    const labelHeight2 = elementCreator("label", null, {}, "Height 2 (ft):");
+
+    const inputHeight2 = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter height 2",
+    });
+
+    height2.append(labelHeight2);
+    height2.append(inputHeight2);
     inputFields.append(height2);
 
-    // creates width 2 input
-    const width2 = document.createElement("div");
-    width2.classList.add("input-wrapper");
-    width2.setAttribute("id", "unit-width2");
-    const labelwidth2 = document.createElement("label");
-    const labelForwidth2 = document.createTextNode("Width (ft):");
-    labelwidth2.append(labelForwidth2);
-    const inputElement2 = document.createElement("input");
-    inputElement2.setAttribute("type", "text");
-    inputElement2.setAttribute("placeholder", "Enter width 2");
+    // creates second width input
+    const width2 = elementCreator("div", "input-wrapper", {
+      id: "unit-width2",
+    });
+    const labelwidth2 = elementCreator("label", null, {}, "Width 2 (ft):");
+    const inputWidth2 = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter width 2",
+    });
+
     width2.append(labelwidth2);
-    width2.append(inputElement2);
+    width2.append(inputWidth2);
     inputFields.append(width2);
   } else if (measureUnit.value === "square") {
     inputFields.innerHTML = "";
@@ -135,10 +129,18 @@ measureUnit.addEventListener("change", () => {
     const widthDiv = elementCreator("div", "input-wrapper", {
       id: "unit-width",
     });
-    const myLabel = elementCreator("label", null, {"type": "text","placeholder":"Enter width"}, "Width (ft):");
-    const inputElement_2 = elementCreator("input", null, settingAttributes);
+    const myLabel = elementCreator(
+      "label",
+      null,
+      { type: "text", placeholder: "Enter width" },
+      "Width (ft):",
+    );
+    const widthInput = elementCreator("input", null, {
+      type: "text",
+      placeholder: "Enter width",
+    });
     widthDiv.append(myLabel);
-    widthDiv.append(inputElement_2);
+    widthDiv.append(widthInput);
     inputFields.append(widthDiv);
   }
 });
@@ -148,22 +150,17 @@ calculateBtn.addEventListener("click", () => {
   const measureValue = measureUnit.value;
   if (measureValue == "round") {
     const radius = document.getElementByID("unit-radius").value;
-    if (radius > 0 && isNaN(radius))
+    if (radius > 0 && isNaN(radius)) {
       const area = PI * Math.pow(radius, 2);
       const gallons = area / 350;
       output.innerHTML = `You need ${gallons} gallons of paint`;
     }
     // TODO: implement error handler for invalid input
-  } else if (measureValue == "l-shape") {
-    
-  } else if (measureValue == "square") {
-    
   }
 });
 
 clearBtn.addEventListener("click", () => {
   // function that clears the inputs
-  
 });
 
 const clearInputs = () => {
