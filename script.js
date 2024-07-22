@@ -182,6 +182,16 @@ calculateBtn.addEventListener("click", () => {
     } else {
       output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
     }
+  } else if (measureUnit.value === "square") {
+    const width = document.getElementById("width").value;
+    const height = document.getElementById("height").value;
+    const area = width * height;
+    const gallons = area / 350;
+    if (gallons > 0) {
+      output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+    } else {
+      output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
+    }
   }
 });
 
