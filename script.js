@@ -201,6 +201,17 @@ clearBtn.addEventListener("click", () => {
 
 const clearInputs = () => {
   // function that clears the inputs
+  if (measureUnit.value === "round") {
+    document.getElementById("radius").value = "";
+  } else if (measureUnit.value === "l-shape") {
+    document.getElementById("height").value = "";
+    document.getElementById("width").value = "";
+    document.getElementById("height2").value = "";
+    document.getElementById("width2").value = "";
+  } else if (measureUnit.value === "square") {
+    document.getElementById("height").value = "";
+    document.getElementById("width").value = "";
+  }
 };
 
 // assume one gallon covers 350 sq ft
