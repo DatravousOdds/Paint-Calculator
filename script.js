@@ -156,7 +156,6 @@ measureUnit.addEventListener("change", () => {
 calculateBtn.addEventListener("click", () => {
   // function that calculates the paint
   if (measureUnit.value === "round") {
-    console.log(output.textContent);
     const radius = document.getElementById("radius").value;
     if (parseInt(radius) > 0 && !isNaN(radius)) {
       const area = Math.pow(radius, 2);
@@ -167,20 +166,35 @@ calculateBtn.addEventListener("click", () => {
       } else {
         output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
       }
+    } else {
+      output.textContent = "Please enter a valid radius!";
     }
   } else if (measureUnit.value === "l-shape") {
-    console.log(output.textContent);
     const height = document.getElementById("height").value;
     const width = document.getElementById("width").value;
     const height2 = document.getElementById("height2").value;
     const width2 = document.getElementById("width2").value;
-    const area = height * width + height2 * width2;
-    const gallons = area / 350;
-    console.log(gallons);
-    if (gallons > 0) {
-      output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+    if (
+      parseInt(height) > 0 &&
+      !isNaN(height) &&
+      parseInt(width) > 0 &&
+      !isNaN(width) &&
+      parseInt(height2) > 0 &&
+      !isNaN(height2) &&
+      parseInt(width2) > 0 &&
+      isNaN(width2)
+    ) {
+      const area = height * width + height2 * width2;
+      const gallons = area / 350;
+      console.log(gallons);
+      if (gallons > 0) {
+        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+      } else {
+        output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
+      }
     } else {
-      output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
+      output.textContent =
+        "Please enter a valid height and width for both inputs!";
     }
   } else if (measureUnit.value === "square") {
     const width = document.getElementById("width").value;
@@ -211,6 +225,3 @@ const clearInputs = () => {
 };
 
 clearBtn.addEventListener("click", clearInputs);
-
-
-
