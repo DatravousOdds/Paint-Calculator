@@ -1,5 +1,6 @@
 const output = document.getElementById("output");
 const measureUnit = document.getElementById("measure-unit");
+const resultsContainer = document.getElementById("result-container");
 const unitHeight = document.getElementById("unit-height");
 const unitFeet = document.getElementById("unit-feet");
 const length = document.getElementById("length");
@@ -161,13 +162,15 @@ calculateBtn.addEventListener("click", () => {
       const area = Math.pow(radius, 2);
       const gallons = area / 350;
       console.log(gallons);
-      if (gallons > 0) {
-        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+      if (gallons <= 1) {
+        output.textContent = "You need 1 gallon of paint";
       } else {
-        output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
+        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+        resultsContainer.style.backgroundColor = "";
       }
     } else {
       output.textContent = "Please enter a valid radius!";
+      resultsContainer.style.backgroundColor = "red";
     }
   } else if (measureUnit.value === "l-shape") {
     const height = document.getElementById("height").value;
@@ -187,14 +190,16 @@ calculateBtn.addEventListener("click", () => {
       const area = height * width + height2 * width2;
       const gallons = area / 350;
       console.log(gallons);
-      if (gallons > 0) {
-        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+      if (gallons <= 1) {
+        output.textContent = "You need 1 gallon of paint";
       } else {
-        output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
+        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
       }
+      resultsContainer.style.backgroundColor = "";
     } else {
       output.textContent =
         "Please enter a valid height and width for both inputs!";
+      resultsContainer.style.backgroundColor = "red";
     }
   } else if (measureUnit.value === "square") {
     const width = document.getElementById("width").value;
@@ -202,12 +207,15 @@ calculateBtn.addEventListener("click", () => {
     if (width > 0 && !isNaN(width) && height > 0 && !isNaN(height)) {
       const area = width * height;
       const gallons = area / 350;
-      if (gallons > 0) {
-        output.textContent = `You need ${Math.ceil(gallons)} gallons of paint`;
+      if (gallons <= 1) {
+        output.textContent = "You need 1 gallons of paint";
       } else {
         output.textContent = `You need ${Math.ceil(gallons)} gallon of paint`;
       }
     }
+
+    output.textContent = "Please enter a valid height and width!";
+    resultsContainer.style.backgroundColor = "red";
   }
 });
 
